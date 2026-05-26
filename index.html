@@ -522,6 +522,72 @@ footer {
 .d3 { transition-delay: .26s; }
 .d4 { transition-delay: .34s; }
 
+/* ── MOBILE ──────────────────────── */
+@media(max-width:600px){
+
+  /* Hero */
+  .hero { padding: 0 5vw 10vw; }
+  .hero-h1 { font-size: clamp(2.6rem, 13vw, 4rem); }
+  .hero-sub { font-size: 1rem; margin-top: 1.2rem; }
+  .hero-btn { margin-top: 1.6rem; padding: .8rem 1.5rem; }
+
+  /* About — hide float image on small screens */
+  .about-img-float { display: none; }
+  .about-img-main { height: 260px; border-radius: 1.2rem; }
+  #about { padding: 3.5rem 5vw; }
+
+  /* History — stack timelines */
+  #history > div[style] { grid-template-columns: 1fr !important; gap: 0 !important; }
+  #history { padding: 3.5rem 5vw; }
+
+  /* Personalities */
+  #personalities { padding: 3.5rem 5vw; }
+
+  /* Parks */
+  #parks { padding: 3.5rem 5vw; }
+  .parks-grid { grid-template-columns: 1fr !important; }
+  .park-card.wide { grid-column: span 1; }
+  .park-card img, .park-card.wide img { height: 240px; }
+
+  /* Districts */
+  #districts { padding: 3.5rem 5vw; }
+  .districts-list { grid-template-columns: 1fr; }
+
+  /* Food */
+  #food { padding: 3.5rem 5vw; }
+  .food-head { flex-direction: column; gap: 1rem; }
+  .food-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Metro */
+  #metro { padding: 3.5rem 5vw; }
+  .metro-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .metro-row { grid-template-columns: auto 1fr; gap: .6rem; }
+  .metro-line-info { display: none; }
+  .metro-stats { grid-template-columns: 1fr 1fr; }
+  .metro-ornament { display: none; }
+
+  /* Culture */
+  #culture { padding: 3.5rem 5vw; }
+  .culture-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .culture-metrics { grid-template-columns: 1fr 1fr 1fr; gap: .5rem; }
+  .culture-metric { padding: 1rem .7rem; }
+  .culture-metric-num { font-size: 1.5rem; }
+  .culture-metric-label { font-size: .65rem; }
+
+  /* Closing */
+  #closing { padding: 5rem 5vw; min-height: 70vh; }
+  .closing-h2 { font-size: clamp(1.9rem, 9vw, 3rem); }
+
+  /* Footer */
+  footer { flex-direction: column; gap: .6rem; text-align: center; padding: 2rem 5vw; }
+
+  /* Reduce section heading sizes */
+  .about-h2 { font-size: clamp(2rem, 10vw, 3.2rem); }
+  .history-h2 { font-size: clamp(2rem, 10vw, 3.2rem); }
+  .metro-h2 { font-size: clamp(2rem, 10vw, 3.2rem); }
+  .culture-h2 { font-size: clamp(2rem, 10vw, 3.2rem); }
+}
+
 </style>
 </head>
 <body>
