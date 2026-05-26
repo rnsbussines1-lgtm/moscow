@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Москва — Сердце России</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Geologica:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --red:       #B5292A;
+  --red-lt:    #D4645C;
+  --gold:      #C0922E;
+  --gold-lt:   #D9B97A;
+  --ink:       #141210;
+  --ink-2:     #3E3830;
+  --gray:      #9A9080;
+  --white:     #FEFCF7;
+  --cream:     #F6F2E8;
+  --ease:      cubic-bezier(0.34, 1.2, 0.64, 1);
+  --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Geologica', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────── */
+nav {
+  position: fixed; top: 1.2rem; left: 50%; transform: translateX(-50%);
+  z-index: 500;
+  display: flex; align-items: center; gap: 2.2rem;
+  padding: .7rem 1.8rem .7rem 1.4rem;
+  border-radius: 100px;
+  background: rgba(254,252,247,0);
+  transition: background .4s, box-shadow .4s, backdrop-filter .4s;
+}
+nav.solid {
+  background: rgba(254,252,247,0.90);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0,0,0,.08), 0 0 0 1px rgba(181,41,42,.1);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600; color: var(--white);
+  text-decoration: none; transition: color .3s;
+  white-space: nowrap;
+}
+nav.solid .nav-logo { color: var(--ink); }
+.nav-links { display: flex; gap: 1.6rem; list-style: none; }
+.nav-links a {
+  font-size: .74rem; font-weight: 400; letter-spacing: .06em;
+  color: rgba(254,252,247,.78); text-decoration: none;
+  transition: color .2s, opacity .2s;
+}
+nav.solid .nav-links a { color: var(--ink-2); }
+.nav-links a:hover { color: var(--red) !important; opacity: 1; }
+@media(max-width:700px){ .nav-links { display:none; } }
+
+/* ── HERO ────────────────────────── */
+.hero {
+  position: relative; height: 100svh; min-height: 580px;
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 0 6vw 8vh;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(14,10,6,.9) 0%, rgba(14,10,6,.18) 55%, rgba(14,10,6,.35) 100%),
+    url('https://moskultura.ru/wp-content/uploads/2025/04/mosity.jpg') center/cover no-repeat;
+  transform: scale(1.04);
+  animation: zoomBg 20s ease-in-out infinite alternate;
+}
+@keyframes zoomBg { from { transform: scale(1.04); } to { transform: scale(1.1); } }
+
+.hero-pill {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .38rem .95rem; border-radius: 100px;
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(8px);
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 1.6rem;
+  opacity: 0; animation: fadeUp .8s .3s var(--ease) forwards;
+}
+.hero-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold-lt); flex-shrink: 0; }
+
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.4rem, 8vw, 9rem);
+  font-weight: 700; line-height: .95; letter-spacing: -.02em;
+  color: var(--white);
+  opacity: 0; animation: fadeUp 1s .45s var(--ease) forwards;
+}
+.hero-h1 em { color: var(--gold-lt); font-style: italic; }
+
+.hero-sub {
+  margin-top: 1.6rem; max-width: 34rem;
+  font-size: clamp(.95rem, 1.3vw, 1.15rem); font-weight: 300;
+  color: rgba(254,252,247,.72); line-height: 1.8;
+  opacity: 0; animation: fadeUp .9s .65s var(--ease) forwards;
+}
+
+.hero-btn {
+  margin-top: 2.2rem;
+  display: inline-flex; align-items: center; gap: .7rem;
+  padding: .9rem 1.9rem; border-radius: 100px;
+  background: var(--red); color: var(--white);
+  font-size: .82rem; font-weight: 500; letter-spacing: .04em;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(181,41,42,.4);
+  transition: transform .3s var(--ease), box-shadow .3s;
+  opacity: 0; animation: fadeUp .9s .85s var(--ease) forwards;
+}
+.hero-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(181,41,42,.5); }
+.hero-btn svg { width: 15px; height: 15px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── ABOUT ───────────────────────── */
+#about { padding: clamp(5rem,9vw,9rem) 6vw; }
+
+.about-wrap {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.about-tag {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 1.2rem;
+}
+.about-tag::before { content: ''; width: 1.4rem; height: 1.5px; background: var(--red); border-radius: 2px; }
+
+.about-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4.5vw, 5rem);
+  font-weight: 700; line-height: 1.05; letter-spacing: -.02em;
+  margin-bottom: 1.8rem;
+}
+.about-body p {
+  font-size: 1.05rem; line-height: 1.9;
+  color: var(--ink-2); margin-bottom: 1rem;
+}
+
+.about-pills { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+.about-chip {
+  padding: .55rem 1.2rem; border-radius: 100px;
+  background: var(--cream);
+  font-size: .82rem; color: var(--ink-2); font-weight: 400;
+}
+.about-chip span { color: var(--red); font-weight: 600; margin-right: .3rem; }
+
+.about-img-wrap { position: relative; }
+.about-img-main {
+  width: 100%; height: 500px; object-fit: cover;
+  border-radius: 2rem; display: block;
+  box-shadow: 0 30px 70px rgba(0,0,0,.14);
+}
+.about-img-float {
+  position: absolute; bottom: -2rem; left: -2rem;
+  width: 200px; height: 200px; object-fit: cover;
+  border-radius: 1.4rem;
+  border: 5px solid var(--white);
+  box-shadow: 0 16px 40px rgba(0,0,0,.16);
+}
+
+@media(max-width:800px){
+  .about-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-img-main { height: 320px; }
+  .about-img-float { width: 130px; height: 130px; left: -1rem; }
+}
+
+/* ── HISTORY ─────────────────────── */
+#history {
+  padding: clamp(4rem,8vw,8rem) 6vw;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
+.history-orb {
+  position: absolute; top: 5%; left: -15%;
+  width: 55vw; height: 55vw; border-radius: 50%;
+  background: radial-gradient(circle, rgba(181,41,42,.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.history-orb2 {
+  position: absolute; bottom: -10%; right: -10%;
+  width: 40vw; height: 40vw; border-radius: 50%;
+  background: radial-gradient(circle, rgba(181,41,42,.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.history-tag {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 1.2rem;
+}
+.history-tag::before { content: ''; width: 1.4rem; height: 1.5px; background: var(--gold-lt); border-radius: 2px; }
+
+.history-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4.5vw, 5rem);
+  font-weight: 700; color: var(--white);
+  line-height: 1.05; letter-spacing: -.02em;
+}
+.history-h2 em { color: var(--gold-lt); font-style: italic; }
+
+.timeline { position: relative; padding-left: 2.5rem; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, var(--gold) 10%, var(--gold) 90%, transparent);
+  opacity: .25;
+}
+.tl-item { position: relative; padding: 0 0 3rem 2.5rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -2.5rem; top: .35rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--gold); opacity: .7;
+  box-shadow: 0 0 0 4px rgba(192,146,46,.12);
+}
+.tl-year { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+.tl-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 600;
+  color: var(--white); margin-bottom: .6rem; line-height: 1.15;
+}
+.tl-body { font-size: .95rem; line-height: 1.85; color: rgba(254,252,247,.5); }
+.tl-body strong { color: rgba(254,252,247,.8); font-weight: 500; }
+
+/* ── PERSONALITIES ───────────────── */
+#personalities { padding: clamp(4rem,8vw,8rem) 6vw; background: var(--cream); }
+
+.pers-head { margin-bottom: 3.5rem; }
+.pers-head p { max-width: 36rem; font-size: .98rem; color: var(--gray); line-height: 1.75; margin-top: .8rem; }
+
+.pers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.pers-card {
+  background: var(--white); border-radius: 1.6rem; overflow: hidden;
+  transition: transform .4s var(--ease), box-shadow .4s;
+  box-shadow: 0 4px 20px rgba(0,0,0,.05);
+}
+.pers-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.1); }
+.pers-era { padding: .45rem 1rem; font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--white); }
+.pers-era.era-soviet { background: var(--ink-2); }
+.pers-era.era-modern { background: var(--red); }
+.pers-era.era-classic { background: #5a4038; }
+
+.pers-body { padding: 1.8rem 1.8rem 2rem; }
+.pers-name { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; line-height: 1.05; margin-bottom: .35rem; }
+.pers-years { font-size: .7rem; letter-spacing: .12em; color: var(--red); margin-bottom: .9rem; }
+.pers-role { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); margin-bottom: .9rem; }
+.pers-bio { font-size: .9rem; line-height: 1.75; color: var(--ink-2); }
+.pers-quote {
+  margin-top: 1.2rem; padding: 1rem 1.2rem;
+  border-left: 2px solid var(--red);
+  background: var(--cream); border-radius: 0 .8rem .8rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-style: italic; color: var(--ink-2); line-height: 1.6;
+}
+
+@media(max-width:900px){ .pers-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px){ .pers-grid { grid-template-columns: 1fr; } }
+
+/* ── PARKS ───────────────────────── */
+#parks { padding: clamp(4rem,8vw,8rem) 6vw; }
+
+.parks-head { margin-bottom: 3rem; }
+.parks-head p { font-size: 1rem; color: var(--gray); line-height: 1.7; max-width: 38rem; }
+
+.parks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+}
+.park-card {
+  position: relative; overflow: hidden;
+  border-radius: 1.5rem; cursor: default;
+}
+.park-card.wide { grid-column: span 2; }
+.park-card img {
+  width: 100%; height: 280px; object-fit: cover; display: block;
+  transition: transform .7s var(--ease-soft), filter .5s;
+  filter: brightness(.82);
+}
+.park-card.wide img { height: 280px; }
+.park-card:hover img { transform: scale(1.05); filter: brightness(.92); }
+
+.park-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.8rem 1.6rem 1.6rem;
+  background: linear-gradient(to top, rgba(10,6,2,.9) 0%, transparent 100%);
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+.park-tag { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-lt); display: block; margin-bottom: .4rem; }
+.park-caption h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2vw, 1.9rem); font-weight: 600;
+  color: var(--white); line-height: 1.1; margin-bottom: .35rem;
+}
+.park-caption p { font-size: .86rem; color: rgba(255,255,255,.6); line-height: 1.5; }
+
+@media(max-width:700px){
+  .parks-grid { grid-template-columns: 1fr; }
+  .park-card.wide { grid-column: span 1; }
+}
+
+/* ── DISTRICTS ───────────────────── */
+#districts { padding: clamp(4rem,8vw,8rem) 6vw; background: var(--cream); }
+
+.districts-head { margin-bottom: 3rem; }
+.districts-head p { max-width: 38rem; font-size: .98rem; color: var(--gray); line-height: 1.75; margin-top: .8rem; }
+
+.districts-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+.district-card {
+  border-radius: 1.6rem; overflow: hidden;
+  background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,.05);
+  transition: transform .4s var(--ease), box-shadow .4s;
+}
+.district-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.1); }
+.district-img {
+  width: 100%; height: 200px; object-fit: cover; display: block;
+  transition: transform .6s var(--ease-soft), filter .4s;
+  filter: brightness(.85);
+}
+.district-card:hover .district-img { transform: scale(1.05); filter: brightness(.95); }
+.district-body { padding: 1.6rem 1.8rem 2rem; }
+.district-badge {
+  display: inline-block; margin-bottom: .8rem;
+  padding: .3rem .9rem; border-radius: 100px;
+  font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+  background: var(--cream); color: var(--red); font-weight: 500;
+}
+.district-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; line-height: 1.05; margin-bottom: .5rem; }
+.district-sub { font-size: .78rem; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: .9rem; }
+.district-desc { font-size: .9rem; line-height: 1.75; color: var(--ink-2); }
+.district-facts { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.district-fact { padding: .35rem .8rem; border-radius: 100px; background: var(--cream); font-size: .75rem; color: var(--ink-2); }
+
+@media(max-width:900px){ .districts-list { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px){ .districts-list { grid-template-columns: 1fr; } }
+
+/* ── FOOD ────────────────────────── */
+#food { padding: clamp(4rem,8vw,8rem) 6vw; }
+
+.food-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.food-head p { max-width: 28rem; font-size: .98rem; color: var(--gray); line-height: 1.75; }
+
+.food-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
+.food-card {
+  border-radius: 1.4rem; overflow: hidden; background: var(--cream);
+  transition: transform .4s var(--ease), box-shadow .4s;
+}
+.food-card:hover { transform: translateY(-7px); box-shadow: 0 20px 50px rgba(0,0,0,.1); }
+.food-img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+  filter: saturate(.92); transition: filter .4s, transform .5s var(--ease-soft);
+}
+.food-card:hover .food-img { filter: saturate(1.08); transform: scale(1.03); }
+.food-body { padding: 1.3rem 1.4rem 1.5rem; }
+.food-num { font-size: .58rem; letter-spacing: .25em; text-transform: uppercase; color: var(--red); margin-bottom: .45rem; }
+.food-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: .4rem; }
+.food-desc { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+
+@media(max-width:900px){ .food-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:480px){ .food-grid { grid-template-columns: 1fr; } }
+
+/* ── METRO ─────────────────────── */
+#metro {
+  padding: clamp(4rem,8vw,8rem) 6vw;
+  background: linear-gradient(135deg, #141210 0%, #1e1a14 60%, #141210 100%);
+  position: relative; overflow: hidden;
+}
+.metro-pattern {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(181,41,42,.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(192,146,46,.03) 0%, transparent 40%);
+  pointer-events: none;
+}
+.metro-ornament {
+  position: absolute; right: 4vw; top: 50%;
+  transform: translateY(-50%);
+  width: min(280px, 28vw); height: min(280px, 28vw);
+  opacity: .06; pointer-events: none;
+}
+
+.metro-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; position: relative; z-index: 1; }
+
+.metro-tag { display: inline-flex; align-items: center; gap: .5rem; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 1.2rem; }
+.metro-tag::before { content: ''; width: 1.4rem; height: 1.5px; background: var(--gold-lt); border-radius: 2px; }
+
+.metro-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4.5vw, 5rem); font-weight: 700; line-height: 1.0; color: var(--white); letter-spacing: -.02em; margin-bottom: 2rem; }
+.metro-h2 em { color: var(--gold-lt); font-style: italic; }
+
+.metro-body p { font-size: 1rem; line-height: 1.9; color: rgba(254,252,247,.55); margin-bottom: 1rem; }
+.metro-body strong { color: rgba(254,252,247,.85); font-weight: 500; }
+
+.metro-lines {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(192,146,46,.15);
+  border-radius: 1.6rem; overflow: hidden;
+}
+.metro-lines-head {
+  padding: 1.2rem 1.8rem; border-bottom: 1px solid rgba(192,146,46,.1);
+  font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); opacity: .8;
+}
+.metro-row {
+  display: grid; grid-template-columns: auto 1fr auto;
+  padding: .9rem 1.8rem; border-bottom: 1px solid rgba(255,255,255,.04);
+  transition: background .2s; gap: 1rem; align-items: center;
+}
+.metro-row:last-child { border-bottom: none; }
+.metro-row:hover { background: rgba(255,255,255,.03); }
+.metro-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.metro-line-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--gold-lt); line-height: 1.2; }
+.metro-line-info { font-size: .82rem; color: rgba(254,252,247,.45); text-align: right; line-height: 1.4; }
+
+.metro-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 2rem; }
+.metro-stat { background: rgba(255,255,255,.04); border: 1px solid rgba(192,146,46,.1); border-radius: 1.2rem; padding: 1.4rem 1.6rem; }
+.metro-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold-lt); line-height: 1; margin-bottom: .3rem; }
+.metro-stat-label { font-size: .78rem; color: rgba(254,252,247,.4); line-height: 1.4; }
+
+@media(max-width:800px){
+  .metro-layout { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+/* ── CULTURE ──────────────────────── */
+#culture {
+  padding: clamp(4rem,8vw,8rem) 6vw;
+  background: var(--white);
+}
+
+.culture-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+.culture-tag { display: inline-flex; align-items: center; gap: .5rem; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--red); margin-bottom: 1.2rem; }
+.culture-tag::before { content: ''; width: 1.4rem; height: 1.5px; background: var(--red); border-radius: 2px; }
+
+.culture-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4.5vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 2rem; }
+.culture-h2 em { font-style: italic; color: var(--red); }
+
+.culture-body p { font-size: 1rem; line-height: 1.9; color: var(--ink-2); margin-bottom: 1rem; }
+.culture-body strong { color: var(--ink); }
+
+.culture-cards { display: flex; flex-direction: column; gap: 1rem; }
+.culture-card {
+  border-radius: 1.4rem; border: 1px solid rgba(181,41,42,.13); background: var(--cream);
+  padding: 1.6rem 1.8rem;
+  transition: transform .3s var(--ease), box-shadow .3s, background .3s;
+}
+.culture-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0,0,0,.07); background: var(--white); }
+.culture-icon { font-size: 1.8rem; margin-bottom: .8rem; line-height: 1; }
+.culture-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: .5rem; }
+.culture-card-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; }
+
+.culture-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: .8rem; margin-top: 2rem; }
+.culture-metric { background: var(--ink); color: var(--white); border-radius: 1.2rem; padding: 1.4rem; text-align: center; }
+.culture-metric-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--gold-lt); margin-bottom: .3rem; }
+.culture-metric-label { font-size: .72rem; color: rgba(254,252,247,.45); line-height: 1.4; letter-spacing: .04em; }
+
+@media(max-width:800px){
+  .culture-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .culture-metrics { grid-template-columns: repeat(3,1fr); }
+}
+@media(max-width:480px){ .culture-metrics { grid-template-columns: 1fr; } }
+
+/* ── CLOSING ─────────────────────── */
+#closing {
+  position: relative; min-height: 85vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 6vw; overflow: hidden;
+}
+.closing-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(14,10,6,.65), rgba(14,10,6,.58)),
+    url('https://upload.wikimedia.org/wikipedia/commons/8/83/Moscow_%2852078730783%29.jpg') center/cover no-repeat;
+}
+.closing-content { position: relative; z-index: 1; max-width: 54rem; }
+.closing-tag {
+  display: inline-flex; align-items: center; gap: .7rem;
+  font-size: .65rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 2rem; opacity: .8;
+}
+.closing-tag::before,.closing-tag::after { content: ''; display:block; width:1.5rem; height:1px; background:var(--gold-lt); }
+.closing-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem,5.5vw,6rem); font-weight: 400;
+  color: var(--white); line-height: 1.25; letter-spacing: -.01em;
+}
+.closing-h2 em { font-style: italic; color: var(--gold-lt); }
+.closing-h2 strong { font-weight: 700; }
+.closing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); margin: 2rem auto; opacity: .7; }
+.closing-sub { font-size: 1rem; color: rgba(255,255,255,.55); line-height: 1.85; max-width: 30rem; margin: 0 auto; }
+.closing-coords { margin-top: 2.5rem; font-size: .62rem; letter-spacing: .3em; color: rgba(255,255,255,.22); text-transform: uppercase; }
+
+/* ── FOOTER ──────────────────────── */
+footer {
+  padding: 2.5rem 6vw; background: var(--ink);
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,.2); text-decoration: none; }
+.footer-copy { font-size: .72rem; color: rgba(255,255,255,.18); letter-spacing: .08em; }
+
+/* ── REVEAL ──────────────────────── */
+.r { opacity: 0; transform: translateY(22px); transition: opacity .85s var(--ease-soft), transform .85s var(--ease-soft); }
+.r.in { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s; }
+.d2 { transition-delay: .18s; }
+.d3 { transition-delay: .26s; }
+.d4 { transition-delay: .34s; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#">МСК · Москва</a>
+  <ul class="nav-links">
+    <li><a href="#about">О городе</a></li>
+    <li><a href="#history">История</a></li>
+    <li><a href="#personalities">Личности</a></li>
+    <li><a href="#parks">Парки</a></li>
+    <li><a href="#districts">Районы</a></li>
+    <li><a href="#food">Еда</a></li>
+    <li><a href="#metro">Метро</a></li>
+    <li><a href="#culture">Культура</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="hbg"></div>
+
+  <div class="hero-pill">
+    <div class="hero-pill-dot"></div>
+    Россия · На Москве-реке
+  </div>
+
+  <h1 class="hero-h1">Москва —<br><em>сердце страны</em></h1>
+
+  <p class="hero-sub">Вечная. Неостановимая. Своя.<br>Двенадцать миллионов судеб в одном городе.</p>
+
+  <a href="#about" class="hero-btn">
+    Открыть Москву
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div>
+      <div class="about-tag r">О городе</div>
+      <h2 class="about-h2 r d1">Мегаполис.<br>Парки.<br>Характер.</h2>
+      <div class="about-body r d2">
+        <p>Москва — один из самых крупных и насыщенных городов мира. Шумная, многоязычная, круглосуточная. Здесь всё возможно — и всё происходит одновременно.</p>
+        <p>Но за стеклом и бетоном — зелёные острова: сотни парков, набережные вдоль Москвы-реки, старинные усадьбы в черте города. За один день можно пройти от современного небоскрёба к тихому саду XIX века.</p>
+        <p>Москва не просит к себе относиться нежно. Она берёт тебя — и уже не отпускает.</p>
+      </div>
+      <div class="about-pills r d3">
+        <div class="about-chip"><span>12M+</span> жителей</div>
+
+        <div class="about-chip"><span>230+</span> парков и садов</div>
+        <div class="about-chip"><span>15</span> линий метро</div>
+      </div>
+    </div>
+    <div class="about-img-wrap r d2">
+      <img class="about-img-main"
+        src="https://upload.wikimedia.org/wikipedia/commons/8/83/Moscow_%2852078730783%29.jpg"
+        alt="Москва с высоты">
+      <img class="about-img-float"
+        src="https://moscowchronology.ru/sites/default/files/images/photostory/photo_2010s_1.jpg"
+        alt="Москва-река">
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="history-orb"></div>
+  <div class="history-orb2"></div>
+
+  <div class="history-head r" style="margin-bottom:4rem">
+    <div class="history-tag">Хронология</div>
+    <h2 class="history-h2">Город, которому<br><em>почти 900 лет</em></h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
+    <div class="timeline r d1">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1147</div>
+        <div class="tl-title">Первое упоминание</div>
+        <div class="tl-body">В летописи появляется имя <strong>«Москва»</strong> — князь Юрий Долгорукий зовёт союзника на встречу «на Москов». Небольшая крепость на высоком берегу реки. Никто ещё не подозревает, чем станет это место.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1712</div>
+        <div class="tl-title">Столица уходит — и возвращается</div>
+        <div class="tl-body">Пётр I переносит столицу в Санкт-Петербург. Москва не исчезает — она остаётся <strong>духовным и торговым центром</strong>. В 1918 году большевики возвращают столицу обратно. Москва снова берёт своё.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1812</div>
+        <div class="tl-title">Пожар Москвы</div>
+        <div class="tl-body">Наполеон вошёл в город — и нашёл пепел. Москвичи <strong>сами сожгли город</strong>, чтобы не сдавать врагу. Через несколько лет Москву отстроили заново — ещё более величественной. Это и есть московский характер.</div>
+      </div>
+    </div>
+    <div class="timeline r d2">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1935</div>
+        <div class="tl-title">Метро открывается</div>
+        <div class="tl-body">13 мая 1935 года первый поезд московского метро прошёл по маршруту Сокольники — Парк культуры. Станции строили как <strong>дворцы для народа</strong> — мрамор, мозаики, скульптуры. Подземный музей, в котором ездят миллионы.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1941–1945</div>
+        <div class="tl-title">Битва за Москву</div>
+        <div class="tl-body">Осенью 1941 года немецкие войска подошли вплотную к городу. Москва не сдалась. <strong>Контрнаступление декабря 1941-го</strong> стало переломом — впервые Германия отступила. Парад на Красной площади в ноябре 1941-го — один из символов стойкости.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1990-е — сегодня</div>
+        <div class="tl-title">Трансформация</div>
+        <div class="tl-body">Москва перестраивалась несколько раз. Промышленные зоны превратились в <strong>творческие кластеры</strong> — Арт-завод «Флакон», «Красный Октябрь», «Винзавод». Набережные реконструированы. Парки перепроектированы. Город не стоит на месте.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONALITIES -->
+<section id="personalities">
+  <div class="pers-head">
+    <div class="about-tag r">Москвичи, изменившие мир</div>
+    <h2 class="about-h2 r d1">Личности<br>Москвы</h2>
+    <p class="r d2">Поэты, учёные, архитекторы и мыслители — Москва всегда была городом людей, опередивших своё время.</p>
+  </div>
+
+  <div class="pers-grid">
+
+    <div class="pers-card r">
+      <div class="pers-era era-classic">Классическая эпоха</div>
+      <div class="pers-body">
+        <div class="pers-name">Александр Пушкин</div>
+        <div class="pers-years">1799 — 1837</div>
+        <div class="pers-role">Поэт · Основатель русского литературного языка</div>
+        <div class="pers-bio">Родился в Москве. Создал современный русский литературный язык. «Евгений Онегин», «Борис Годунов», сотни стихотворений. Его именем названо больше улиц, чем именем любого другого человека в России.</div>
+        <div class="pers-quote">«Я памятник себе воздвиг нерукотворный, к нему не зарастёт народная тропа.»</div>
+      </div>
+    </div>
+
+    <div class="pers-card r d1">
+      <div class="pers-era era-soviet">Советская эпоха</div>
+      <div class="pers-body">
+        <div class="pers-name">Юрий Гагарин</div>
+        <div class="pers-years">1934 — 1968</div>
+        <div class="pers-role">Космонавт · Первый человек в космосе</div>
+        <div class="pers-bio">12 апреля 1961 года — дата, которую знает весь мир. Гагарин стартовал с Байконура и облетел Землю за 108 минут. После полёта жил и работал в Москве. Его улыбка стала символом эпохи и надежды.</div>
+        <div class="pers-quote">«Поехали!» — первое слово человека, покинувшего Землю.</div>
+      </div>
+    </div>
+
+    <div class="pers-card r d2">
+      <div class="pers-era era-soviet">Советская эпоха</div>
+      <div class="pers-body">
+        <div class="pers-name">Лев Толстой</div>
+        <div class="pers-years">1828 — 1910</div>
+        <div class="pers-role">Писатель · Мыслитель · Моралист</div>
+        <div class="pers-bio">«Война и мир», «Анна Каренина», «Воскресение». Прожил большую часть жизни в Москве и Ясной Поляне. Считается одним из величайших романистов в истории. Его московский дом в Хамовниках сохранился до наших дней.</div>
+        <div class="pers-quote">«Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему.»</div>
+      </div>
+    </div>
+
+    <div class="pers-card r d1">
+      <div class="pers-era era-modern">Современность</div>
+      <div class="pers-body">
+        <div class="pers-name">Андрей Тарковский</div>
+        <div class="pers-years">1932 — 1986</div>
+        <div class="pers-role">Кинорежиссёр · Визионер</div>
+        <div class="pers-bio">«Андрей Рублёв», «Солярис», «Сталкер», «Зеркало» — фильмы, которые изменили мировое кино. Вырос в Москве, учился во ВГИКе. Его работы изучают в киношколах всего мира как эталон авторского кинематографа.</div>
+        <div class="pers-quote">«Кино — это скульптура во времени.»</div>
+      </div>
+    </div>
+
+    <div class="pers-card r d2">
+      <div class="pers-era era-modern">Современность</div>
+      <div class="pers-body">
+        <div class="pers-name">Зинаида Серебрякова</div>
+        <div class="pers-years">1884 — 1967</div>
+        <div class="pers-role">Художница · Мастер портрета</div>
+        <div class="pers-bio">Одна из первых значимых женщин-художников России. Её «Автопортрет» стал иконой русского модерна. Работала в Москве, позже эмигрировала в Париж. Работы хранятся в Третьяковской галерее и лучших музеях мира.</div>
+        <div class="pers-quote">Её полотна — это жизнь без прикрас: живая, тёплая и бесконечно человечная.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARKS -->
+<section id="parks">
+  <div class="parks-head">
+    <div class="about-tag r">Зелёная Москва</div>
+    <h2 class="about-h2 r d1">Парки, которые<br>дышат</h2>
+    <p class="r d2">230+ парков и садов — Москва один из самых зелёных мегаполисов мира.</p>
+  </div>
+
+  <div class="parks-grid">
+    <div class="park-card wide r">
+      <img src="https://parks.moscow/wp-content/uploads/2023/12/park-gorkogo.jpg" alt="Парк Горького">
+      <div class="park-caption">
+        <span class="park-tag">Центр города · Москва-река</span>
+        <h3>Парк Горького</h3>
+        <p>Реконструированный флагман. Набережная, веранды, открытые кинотеатры и зимний каток.</p>
+      </div>
+    </div>
+
+    <div class="park-card r d1">
+      <img src="https://content.storage-cdn.ru/genplan/90/new_3dmap/cM2JW.jpg" alt="Измайловский лес">
+      <div class="park-caption">
+        <span class="park-tag">Восток · Лесопарк</span>
+        <h3>Измайловский лес</h3>
+        <p>Один из крупнейших городских лесов в мире. Тишина в черте мегаполиса.</p>
+      </div>
+    </div>
+
+    <div class="park-card r d1">
+      <img src="https://um.mos.ru/content/iblock/9e2/%D1%81%D0%B0%D0%B4%20%D1%8D%D1%80%D0%BC%D0%B8%D1%82%D0%B0%D0%B6%201%20(2).jpg" alt="Сад Эрмитаж">
+      <div class="park-caption">
+        <span class="park-tag">Театральный сад</span>
+        <h3>Сад Эрмитаж</h3>
+        <p>Уютный исторический сад в центре. Театры, фонтаны, шезлонги под старыми липами.</p>
+      </div>
+    </div>
+
+    <div class="park-card r d2">
+      <img src="https://незабываемая.москва/blog/dostoprimechatelnosti_tsaritsyno_v_moskve_1.jpg" alt="Царицыно">
+      <div class="park-caption">
+        <span class="park-tag">Усадьба · XVIII век</span>
+        <h3>Царицыно</h3>
+        <p>Готические дворцы Екатерины II, пруды, мосты и парк — настоящая сказка.</p>
+      </div>
+    </div>
+
+    <div class="park-card r d2">
+      <img src="https://7d9e88a8-f178-4098-bea5-48d960920605.selcdn.net/9665ad51-a97e-4c4c-97f8-30c5d8fe0088//-/format/webp/-/quality/smart_retina/-/stretch/off/-/resize/1900x/" alt="Нескучный сад">
+      <div class="park-caption">
+        <span class="park-tag">Старейший сад Москвы</span>
+        <h3>Нескучный сад</h3>
+        <p>Холмы, дубовые аллеи, беседки. Один из старейших парков города — 300 лет истории.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DISTRICTS -->
+<section id="districts">
+  <div class="districts-head">
+    <div class="about-tag r">Районы Москвы</div>
+    <h2 class="about-h2 r d1">Каждый район —<br>отдельный город</h2>
+    <p class="r d2">Москва — это не один город. Это десятки разных миров, каждый со своим характером и своей историей.</p>
+  </div>
+
+  <div class="districts-list">
+
+    <div class="district-card r">
+      <img class="district-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/9/98/Arbat_Street_in_MSK.jpg"
+        alt="Арбат">
+      <div class="district-body">
+        <div class="district-badge">Старый город</div>
+        <div class="district-name">Арбат</div>
+        <div class="district-sub">Душа старой Москвы</div>
+        <div class="district-desc">Пешеходная улица, которую знает каждый москвич. Дворы-колодцы, художники на мостовой, антикварные магазины. Здесь жили Пушкин, Булат Окуджава. Старый Арбат — это не туристический аттракцион, это слой памяти.</div>
+        <div class="district-facts">
+          <span class="district-fact">XV век</span>
+          <span class="district-fact">Пешеходная зона</span>
+          <span class="district-fact">Литературный</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="district-card r d1">
+      <img class="district-img"
+        src="https://s0.rbk.ru/v6_top_pics/media/img/2/63/754955542552632.jpg"
+        alt="Замоскворечье">
+      <div class="district-body">
+        <div class="district-badge">Купеческий район</div>
+        <div class="district-name">Замоскворечье</div>
+        <div class="district-sub">За рекой · Старый центр</div>
+        <div class="district-desc">Когда-то — торговое сердце Москвы. Здесь стояли купеческие особняки, сейчас — галереи, рестораны и тихие переулки. Третьяковская галерея — отсюда. Замоскворечье сохранило уют маленького города внутри огромного.</div>
+        <div class="district-facts">
+          <span class="district-fact">Третьяковка</span>
+          <span class="district-fact">Особняки XIX в.</span>
+          <span class="district-fact">Тихие дворы</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="district-card r d2">
+      <img class="district-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/8/83/Moscow_%2852078730783%29.jpg"
+        alt="Москва-Сити">
+      <div class="district-body">
+        <div class="district-badge">Деловой центр</div>
+        <div class="district-name">Москва-Сити</div>
+        <div class="district-sub">Небоскрёбы · Финансы</div>
+        <div class="district-desc">Российский Манхэттен — строили с 1990-х. Башня «Меркурий» — самое высокое здание Европы. Ночью силуэт башен отражается в Москве-реке. Внутри — офисы, рестораны на высоте 80-го этажа и смотровые площадки.</div>
+        <div class="district-facts">
+          <span class="district-fact">338 м высота</span>
+          <span class="district-fact">Финансовый хаб</span>
+          <span class="district-fact">Ночной вид</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="district-card r d1">
+      <img class="district-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Moscow_05-2017_img39_Patriarshiy_Pond.jpg"
+        alt="Патриаршие пруды">
+      <div class="district-body">
+        <div class="district-badge">Богемный квартал</div>
+        <div class="district-name">Патриаршие</div>
+        <div class="district-sub">«Патрики» · Самый модный</div>
+        <div class="district-desc">Пруд с лебедями, бульвары, кофейни. Мест с более плотной концентрацией московской богемы не найти. Здесь начинается «Мастер и Маргарита» — и здесь же сидят те, кто перечитывает Булгакова за капучино в третий раз.</div>
+        <div class="district-facts">
+          <span class="district-fact">Булгаков</span>
+          <span class="district-fact">Рестораны</span>
+          <span class="district-fact">Бульвары</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="district-card r d2">
+      <img class="district-img"
+        src="https://images.cdn-cian.ru/images/0/636/864/dizayn-zavod-flakon-moskva-468636083-6.jpg"
+        alt="Флакон">
+      <div class="district-body">
+        <div class="district-badge">Креативный кластер</div>
+        <div class="district-name">«Флакон»</div>
+        <div class="district-sub">Бывший завод · Новая жизнь</div>
+        <div class="district-desc">Старый хрустальный завод превратился в одно из первых арт-пространств Москвы. Студии, кафе, фермерские маркеты, лектории и выставки. Так промышленная Москва превращается в культурную — один двор за раз.</div>
+        <div class="district-facts">
+          <span class="district-fact">Арт-кластер</span>
+          <span class="district-fact">Маркеты</span>
+          <span class="district-fact">Выставки</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="district-card r d3">
+      <img class="district-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Moscow_2008-06-26_Andreyevsky_Road_Bridge_%282%29.jpg"
+        alt="Хамовники">
+      <div class="district-body">
+        <div class="district-badge">Исторический центр</div>
+        <div class="district-name">Хамовники</div>
+        <div class="district-sub">Тихий · Зелёный · Московский</div>
+        <div class="district-desc">Старейший московский район с прогулочными бульварами и дореволюционными особняками. Здесь стоял дом Льва Толстого — и он открыт для посетителей. Хамовники — это Москва, которую не увидишь в туристических путеводителях.</div>
+        <div class="district-facts">
+          <span class="district-fact">Дом Толстого</span>
+          <span class="district-fact">Усадьбы</span>
+          <span class="district-fact">Тихие переулки</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOD -->
+<section id="food">
+  <div class="food-head">
+    <div>
+      <div class="about-tag r">Московская кухня</div>
+      <h2 class="about-h2 r d1">Москва<br><em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--red)">угощает</em><br>весь мир</h2>
+    </div>
+    <p class="r d1">Многонациональный мегаполис — это тысячи кухонь под одним небом. Выбирай.</p>
+  </div>
+
+  <div class="food-grid">
+    <div class="food-card r">
+      <img class="food-img"
+        src="https://images.unian.net/photos/2022_09/thumb_files/1000_545_1662892107-3846.jpg"
+        alt="Борщ">
+      <div class="food-body">
+        <div class="food-num">01 · Классика</div>
+        <div class="food-name">Борщ</div>
+        <div class="food-desc">Свёкла, капуста, зелень, сметана. В Москве подают в сотнях вариаций — от домашнего до авторского.</div>
+      </div>
+    </div>
+    <div class="food-card r d1">
+      <img class="food-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Polu.jpg"
+        alt="Плов">
+      <div class="food-body">
+        <div class="food-num">02 · Восток в Москве</div>
+        <div class="food-name">Плов</div>
+        <div class="food-desc">Узбекская диаспора принесла в Москву настоящий ферганский плов. В Замоскворечье и на Дорогомиловском рынке — каждый день.</div>
+      </div>
+    </div>
+    <div class="food-card r d2">
+      <img class="food-img"
+        src="https://s1.eda.ru/StaticContent/Photos/150601195903/150610152619/p_O.jpg"
+        alt="Шашлык">
+      <div class="food-body">
+        <div class="food-num">03 · Кавказ</div>
+        <div class="food-name">Шашлык</div>
+        <div class="food-desc">Баранина или говядина на углях — кавказская кухня прочно вошла в московский быт. Лучше — на воздухе, в хорошей компании.</div>
+      </div>
+    </div>
+    <div class="food-card r d3">
+      <img class="food-img"
+        src="https://www.chefmarket.ru/blog/wp-content/uploads/2021/04/russian-meat-dumplings-e1617477166404.jpg"
+        alt="Пельмени">
+      <div class="food-body">
+        <div class="food-num">04 · Уральский хит</div>
+        <div class="food-name">Пельмени</div>
+        <div class="food-desc">Сибирские, уральские, авторские. С говядиной и бараниной, со сметаной или бульоном. Пельмени в Москве — это отдельная религия.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRO -->
+<section id="metro">
+  <div class="metro-pattern"></div>
+  <svg class="metro-ornament" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="90" stroke="#C0922E" stroke-width="1" fill="none"/>
+    <circle cx="100" cy="100" r="70" stroke="#C0922E" stroke-width="1" fill="none"/>
+    <circle cx="100" cy="100" r="50" stroke="#C0922E" stroke-width="1" fill="none"/>
+    <circle cx="100" cy="100" r="30" stroke="#C0922E" stroke-width="1" fill="none"/>
+    <circle cx="100" cy="100" r="8" fill="#C0922E" opacity=".3"/>
+    <line x1="100" y1="10" x2="100" y2="190" stroke="#C0922E" stroke-width=".5" opacity=".3"/>
+    <line x1="10" y1="100" x2="190" y2="100" stroke="#C0922E" stroke-width=".5" opacity=".3"/>
+    <line x1="36" y1="36" x2="164" y2="164" stroke="#C0922E" stroke-width=".5" opacity=".2"/>
+    <line x1="164" y1="36" x2="36" y2="164" stroke="#C0922E" stroke-width=".5" opacity=".2"/>
+  </svg>
+
+  <div class="metro-layout">
+    <div>
+      <div class="metro-tag r">Подземный дворец</div>
+      <h2 class="metro-h2 r d1">Метро —<br><em>музей под</em><br>Москвой</h2>
+      <div class="metro-body r d2">
+        <p>Московское метро открылось в <strong>1935 году</strong>. Сталин хотел, чтобы оно было «дворцом для рабочих» — и слово сдержал. Мрамор с Урала, мозаики с историей страны, скульптуры на платформах.</p>
+        <p>Сегодня метро перевозит <strong>более 6 миллионов пассажиров в день</strong>. Это одна из самых загруженных систем в мире — и при этом одна из самых красивых.</p>
+        <p>Станции «Комсомольская», «Маяковская», «Электрозаводская» — признаны <strong>шедеврами архитектуры XX века</strong> международными организациями.</p>
+      </div>
+      <div class="metro-stats r d3">
+        <div class="metro-stat">
+          <div class="metro-stat-num">279</div>
+          <div class="metro-stat-label">станций в системе МЦД и метро</div>
+        </div>
+        <div class="metro-stat">
+          <div class="metro-stat-num">6M+</div>
+          <div class="metro-stat-label">пассажиров каждый день</div>
+        </div>
+        <div class="metro-stat">
+          <div class="metro-stat-num">1935</div>
+          <div class="metro-stat-label">год открытия первой линии</div>
+        </div>
+        <div class="metro-stat">
+          <div class="metro-stat-num">Мрамор</div>
+          <div class="metro-stat-label">станции строили как дворцы</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="r d2">
+      <div class="metro-lines">
+        <div class="metro-lines-head">Легендарные линии и станции</div>
+        <div class="metro-row">
+          <div class="metro-dot" style="background:#E42313"></div>
+          <div class="metro-line-name">Сокольническая</div>
+          <div class="metro-line-info">Первая · 1935 г.<br>Сокольники → ул. Академика Янгеля</div>
+        </div>
+        <div class="metro-row">
+          <div class="metro-dot" style="background:#4F9C42"></div>
+          <div class="metro-line-name">Замоскворецкая</div>
+          <div class="metro-line-info">Маяковская — шедевр<br>Арх. Алексей Душкин</div>
+        </div>
+        <div class="metro-row">
+          <div class="metro-dot" style="background:#0078BF"></div>
+          <div class="metro-line-name">Арбатско-Пресненская</div>
+          <div class="metro-line-info">Самая длинная линия<br>Через весь центр</div>
+        </div>
+        <div class="metro-row">
+          <div class="metro-dot" style="background:#B4A4C8"></div>
+          <div class="metro-line-name">Таганско-Краснопресненская</div>
+          <div class="metro-line-info">Самая загруженная<br>Курская — один из шедевров</div>
+        </div>
+        <div class="metro-row">
+          <div class="metro-dot" style="background:#E4A101"></div>
+          <div class="metro-line-name">Большая Кольцевая</div>
+          <div class="metro-line-info">Новая · 2023 г.<br>Самая длинная кольцевая в мире</div>
+        </div>
+        <div class="metro-row">
+          <div class="metro-dot" style="background:#C6A96A"></div>
+          <div class="metro-line-name">Комсомольская</div>
+          <div class="metro-line-info">Кольцевая · 1950 г.<br>Жемчужина сталинского метро</div>
+        </div>
+        <div class="metro-row">
+          <div class="metro-dot" style="background:#69C8D0"></div>
+          <div class="metro-line-name">МЦК</div>
+          <div class="metro-line-info">Кольцо наземное · 2016 г.<br>Обзорный маршрут по Москве</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section id="culture">
+  <div class="culture-layout">
+    <div>
+      <div class="culture-tag r">Искусство и наука</div>
+      <h2 class="culture-h2 r d1">Москва, которую<br>не видят<br><em>туристы</em></h2>
+      <div class="culture-body r d2">
+        <p>За витриной официальных достопримечательностей — <strong>живая культурная столица</strong>. Независимые театры, андеграундные галереи, лектории и книжные пространства.</p>
+        <p>В Москве работает <strong>более 60 театров</strong>, включая легендарные «Современник», «Театр на Таганке» и Большой — балетная труппа мирового уровня.</p>
+        <p>Третьяковская галерея хранит <strong>крупнейшее собрание русского искусства</strong> в мире. Пушкинский музей — западного. В Москве более 200 музеев — от крупнейших до камерных, в старинных особняках.</p>
+      </div>
+    </div>
+
+    <div class="culture-cards r d2">
+      <div class="culture-card">
+        <div class="culture-icon">🎭</div>
+        <div class="culture-card-title">Театральная Москва</div>
+        <div class="culture-card-desc">Больше 60 театров — от Большого до маленьких подвальных сцен. Театр на Таганке, «Современник», «Мастерская Петра Фоменко» — каждое название это история.</div>
+      </div>
+      <div class="culture-card">
+        <div class="culture-icon">🖼</div>
+        <div class="culture-card-title">Галереи и музеи</div>
+        <div class="culture-card-desc">Третьяковка, Пушкинский, Еврейский музей, Мультимедиа Арт Музей. Плюс — сотни независимых галерей в бывших заводах и дворах.</div>
+      </div>
+      <div class="culture-card">
+        <div class="culture-icon">📚</div>
+        <div class="culture-card-title">Книжная культура</div>
+        <div class="culture-card-desc">Букинистические развалы на Арбате, «Москва» на Тверской, «Фаланстер» в Малом Гнездниковском. Читающий город — это про Москву.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="culture-metrics r d3" style="margin-top:4rem">
+    <div class="culture-metric">
+      <div class="culture-metric-num">60+</div>
+      <div class="culture-metric-label">театров в городе</div>
+    </div>
+    <div class="culture-metric">
+      <div class="culture-metric-num">200+</div>
+      <div class="culture-metric-label">музеев и галерей</div>
+    </div>
+    <div class="culture-metric">
+      <div class="culture-metric-num">877</div>
+      <div class="culture-metric-label">лет городу</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section id="closing">
+  <div class="closing-bg"></div>
+  <div class="closing-content">
+    <div class="closing-tag r">Москва</div>
+    <h2 class="closing-h2 r d1">
+      Этот город не<br><em>просит любви.</em><br>
+      Он <strong>берёт её.</strong><br>
+      <em>Сам.</em>
+    </h2>
+    <div class="closing-dot r d2"></div>
+    <p class="closing-sub r d2">
+      Здесь метро строили как дворцы, парки — как лёгкие города, а люди — жили так, будто весь мир смотрит.
+    </p>
+    <div class="closing-coords r d3">55°45′N · 37°37′E · Москва · Россия</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">МСК · Москва</a>
+  <div class="footer-copy">Мегаполис. Парки. Характер.</div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', scrollY > 60);
+}, { passive: true });
+
+const hbg = document.getElementById('hbg');
+window.addEventListener('scroll', () => {
+  if (scrollY < innerHeight)
+    hbg.style.transform = `translateY(${scrollY * .3}px) scale(1.04)`;
+}, { passive: true });
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 50);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a =>
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  })
+);
+</script>
+</body>
+</html>
